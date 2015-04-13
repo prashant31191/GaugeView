@@ -10,10 +10,7 @@ An Android library for drawing gauges on Canvas.
 TODO (coming soon)
 ------------------
 
-Add support for wearables.
-
-Clean up the code.
+Add wearables support.
 
 Document the main features.
 
-Add javadoc.
