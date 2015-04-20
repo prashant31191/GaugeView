@@ -670,7 +670,7 @@ public class GaugeView extends View {
         final float startX = CENTER - textUnitWidth / 2;
         final float startY = CENTER + 0.1f;
 
-        canvas.drawText(textValue, startX, startY, mTextValuePaint);
+        drawText(canvas,textValue, startX, startY, mTextValuePaint);
 
         if (!TextUtils.isEmpty(mTextUnit)) {
             canvas.drawText(mTextUnit, CENTER + textValueWidth / 2 + 0.03f, CENTER, mTextUnitPaint);
