@@ -3,6 +3,7 @@
     xmlns:gauge="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -23,6 +24,48 @@
         gauge:scaleStartValue="0"
         gauge:scaleEndValue="100"
         android:layout_marginTop="30dp"
+
         />
+
+
+    <TextView
+        android:id="@+id/txtCurrentSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/gauge_view"
+        android:text="000.0 miles/hour"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox android:id="@+id/chkMetricUnits"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txtCurrentSpeed"
+        android:text="Use metric units?"/>
+
+
+
+    <ScrollView
+        android:layout_below="@+id/chkMetricUnits"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#d000"
+            android:textSize="15dp"
+            android:text="sdahl \n jhashdsdahl \n jhashdsdahl \n jhashdsdahl \n jhashdsdahl \n jhashdsdahl \n jhashdsdahl \n jhashdsdahl \n jhashdsdahl \n jhashdsdahl \n jhashdsdahl \n jhashd"
+            />
+    </ScrollView>
+
+
+
 
 </RelativeLayout>

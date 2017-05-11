@@ -2,11 +2,22 @@
 <items version="2" >
 
     <item
-        jar="/Users/sulejman/AndroidStudioProjects/GaugeView/app/build/intermediates/exploded-aar/GaugeView/gaugelibrary/unspecified/classes.jar"
+        is-multidex="false"
+        jar="E:\Prashant\Github_Demo\GaugeView\app\build\intermediates\exploded-aar\GaugeView\gaugelibrary\unspecified\jars\classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="ff099601113a7b78688ae8850122bc7280e9dffd">
-        <dex dex="/Users/sulejman/AndroidStudioProjects/GaugeView/app/build/intermediates/pre-dexed/debug/classes-457a7a33d7849090296280c98be1d30bd882f05d.jar" />
+        optimize="true"
+        revision="25.0.2"
+        sha1="03259a7a40394949dc53c7feb20524774501c07d">
+        <dex dex="E:\Prashant\Github_Demo\GaugeView\app\build\intermediates\pre-dexed\debug\GaugeView-gaugelibrary-unspecified_46a634143a4787ea8004422e35f657819c79b04c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.0\c4ba5371a29ac9b2ad6129b1d39ea38750043eff\gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="E:\Prashant\Github_Demo\GaugeView\app\build\intermediates\pre-dexed\debug\gson-2.8.0_b71d5f7c2d5af6eab9e08ff09f05f15005821db5.jar" />
     </item>
 
 </items>
