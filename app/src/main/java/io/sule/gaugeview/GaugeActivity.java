@@ -150,7 +150,7 @@ int i=0;
         txtCurrentSpeed.setText(strCurrentSpeed + " " + strUnits);
         tvLog.setText(strLog);
 
-        int speed = Integer.parseInt(strCurrentSpeed);
+        float speed = Float.parseFloat(strCurrentSpeed);
         mGaugeView.setTargetValue(speed);}
         catch (Exception e)
         {
