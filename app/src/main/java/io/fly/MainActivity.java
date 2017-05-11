@@ -11,6 +11,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.text.SpannableString;
@@ -27,6 +28,8 @@ import com.google.gson.Gson;
 
 import java.util.Locale;
 
+import io.sule.gaugeview.CLocation;
+import io.sule.gaugeview.GaugeActivity;
 import io.sule.gaugeview.R;
 
 
@@ -51,6 +54,19 @@ public class MainActivity extends Activity implements LocationListener, GpsStatu
     private Data.onGpsServiceUpdate onGpsServiceUpdate;
 
     private boolean firstfix;
+
+
+
+
+
+
+
+    private static final int HANDLER_DELAY = 1000*5;
+    private static final int START_HANDLER_DELAY = 500;
+    Handler handler;
+    GPSTracker gpsTracker;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +146,37 @@ public class MainActivity extends Activity implements LocationListener, GpsStatu
 
             }
         });
+
+
+
+
+
+
+        gpsTracker = new GPSTracker(MainActivity.this);
+
+
+
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+
+
+
+                Location location = gpsTracker.getLocation();
+                if(location != null)
+                {
+                    myLocationChanged(location);
+                }
+
+
+                handler.postDelayed(this, HANDLER_DELAY);
+            }
+        }, START_HANDLER_DELAY);
+
+
+
+
+
     }
 
     public void onFabClick(View v){
@@ -258,6 +305,50 @@ public class MainActivity extends Activity implements LocationListener, GpsStatu
         }
 
     }
+
+
+
+int i=0;
+    public void myLocationChanged(Location location) {
+
+        i = i+1;
+        Log.i("111","====myLocationChanged=====i==="+i);
+        Log.i("111","====location=====getLongitude==="+location.getLongitude());
+        Log.i("111","====location=====getLatitude==="+location.getLatitude());
+
+
+
+        if (location.hasAccuracy()) {
+            SpannableString s = new SpannableString(String.format("%.0f", location.getAccuracy()) + "m");
+            s.setSpan(new RelativeSizeSpan(0.75f), s.length()-1, s.length(), 0);
+            accuracy.setText(s);
+
+            if (firstfix){
+                status.setText("");
+                fab.setVisibility(View.VISIBLE);
+                if (!data.isRunning() && !maxSpeed.getText().equals("")) {
+                    refresh.setVisibility(View.VISIBLE);
+                }
+                firstfix = false;
+            }
+        }else{
+            firstfix = true;
+        }
+
+        if (location.hasSpeed()) {
+            /*progressBarCircularIndeterminate.setVisibility(View.GONE);*/
+            String speed = String.format(Locale.ENGLISH, "%.0f", location.getSpeed() * 3.6) + "km/h";
+
+            if (sharedPreferences.getBoolean("miles_per_hour", false)) { // Convert to MPH
+                speed = String.format(Locale.ENGLISH, "%.0f", location.getSpeed() * 3.6 * 0.62137119) + "mi/h";
+            }
+            SpannableString s = new SpannableString(speed);
+            s.setSpan(new RelativeSizeSpan(0.25f), s.length()-4, s.length(), 0);
+            currentSpeed.setText(s);
+        }
+
+    }
+
 
     public void onGpsStatusChanged (int event) {
         switch (event) {

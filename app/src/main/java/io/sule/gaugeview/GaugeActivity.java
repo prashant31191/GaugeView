@@ -7,6 +7,8 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -17,6 +19,7 @@ import java.util.Formatter;
 import java.util.Locale;
 import java.util.Random;
 
+import io.fly.GPSTracker;
 import io.fly.MainActivity;
 import io.sule.gaugelibrary.GaugeView;
 
@@ -29,6 +32,14 @@ public class GaugeActivity extends Activity implements IBaseGpsListener{
     String strLog = "..............";
 
     private final Random RAND = new Random();
+
+
+
+    private static final int HANDLER_DELAY = 1000*5;
+    private static final int START_HANDLER_DELAY = 500;
+    Handler handler;
+    GPSTracker gpsTracker;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +73,35 @@ public class GaugeActivity extends Activity implements IBaseGpsListener{
             }
         });
 
+
+        gpsTracker = new GPSTracker(GaugeActivity.this);
+
+
+
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+
+
+
+                Location location = gpsTracker.getLocation();
+                if(location != null)
+                {
+                    strLog = strLog +
+                            "\n******************\n "+
+                            "Lat # Lon --> \n " + location.getLatitude() + " # " + location.getLongitude()+
+                            "\n******************\n ";
+
+                    CLocation myLocation = new CLocation(location, useMetricUnits());
+                    updateSpeed(myLocation);
+                }
+
+
+                handler.postDelayed(this, HANDLER_DELAY);
+            }
+        }, START_HANDLER_DELAY);
+
+
     }
 
 
@@ -72,9 +112,17 @@ public class GaugeActivity extends Activity implements IBaseGpsListener{
         System.exit(0);
     }
 
-
+int i=0;
     private void updateSpeed(CLocation location) {
         // TODO Auto-generated method stub
+        try{
+
+        i = i+1;
+        Log.i("111","====updateSpeed=====i==="+i);
+       // Log.i("111","====location=====getLongitude==="+location.getLongitude());
+       // Log.i("111","====location=====getLatitude==="+location.getLatitude());
+
+
         float nCurrentSpeed = 0;
 
         if(location != null)
@@ -101,6 +149,13 @@ public class GaugeActivity extends Activity implements IBaseGpsListener{
 
         txtCurrentSpeed.setText(strCurrentSpeed + " " + strUnits);
         tvLog.setText(strLog);
+
+        int speed = Integer.parseInt(strCurrentSpeed);
+        mGaugeView.setTargetValue(speed);}
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private boolean useMetricUnits() {
