@@ -52,6 +52,8 @@ public class GaugeActivity extends Activity implements IBaseGpsListener{
         tvLog.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                strLog = "";
+                tvLog.setText("");
                 startActivity(new Intent(GaugeActivity.this, MainActivity.class));
                 return false;
             }
