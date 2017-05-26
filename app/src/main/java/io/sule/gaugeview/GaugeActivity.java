@@ -10,6 +10,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import java.util.Formatter;
 import java.util.Locale;
 import java.util.Random;
 
+import io.demo.HomeActivity;
 import io.fly.GPSTracker;
 import io.fly.MainActivity;
 import io.sule.gaugelibrary.GaugeView;
@@ -28,6 +30,7 @@ public class GaugeActivity extends Activity implements IBaseGpsListener{
 
     private GaugeView mGaugeView;
     private TextView txtCurrentSpeed;
+    private Button bntHome;
     private TextView tvLog;
     String strLog = "..............";
 
@@ -47,6 +50,7 @@ public class GaugeActivity extends Activity implements IBaseGpsListener{
         setContentView(R.layout.activity_gauge);
 
         mGaugeView = (GaugeView) findViewById(R.id.gauge_view);
+        bntHome = (Button) findViewById(R.id.bntHome);
          txtCurrentSpeed = (TextView) findViewById(R.id.txtCurrentSpeed);
         tvLog = (TextView) this.findViewById(R.id.tvLog);
         tvLog.setOnLongClickListener(new View.OnLongClickListener() {
@@ -58,6 +62,15 @@ public class GaugeActivity extends Activity implements IBaseGpsListener{
                 return false;
             }
         });
+
+        bntHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GaugeActivity.this, HomeActivity.class));
+                finish();
+            }
+        });
+
 
        // mTimer.start();
 

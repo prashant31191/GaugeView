@@ -39,6 +39,7 @@
         android:text="000.0 miles/hour"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+
     <CheckBox android:id="@+id/chkMetricUnits"
 
         android:layout_width="wrap_content"
@@ -67,5 +68,12 @@
 
 
 
+    <Button
+        android:id="@+id/bntHome"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="HOME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>
