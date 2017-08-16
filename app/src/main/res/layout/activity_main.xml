@@ -18,12 +18,12 @@
     <RelativeLayout
         android:id="@+id/toolbarSpeed"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
 
         android:layout_gravity="center"
         android:background="@color/red"
-        android:elevation="5dp">
-
+        >
+        <!--android:elevation="5dp"-->
         <!--<com.gc.materialdesign.views.ProgressBarCircularIndeterminate
             android:id="@+id/progressBarCircularIndeterminate"
             android:layout_width="40dp"
@@ -35,12 +35,13 @@
 
         <TextView
             android:id="@+id/currentSpeed"
-            android:text=""
+            android:text="00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textSize="100sp"
+            android:textSize="50sp"
+            android:padding="10dp"
             android:textColor="@android:color/white"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"/>
@@ -67,7 +68,7 @@
 
     <TextView
         android:id="@+id/maxSpeed"
-        android:text=""
+        android:text="00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -105,7 +106,7 @@
 
     <TextView
         android:id="@+id/averageSpeed"
-        android:text=""
+        android:text="00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -143,10 +144,10 @@
 
     <TextView
         android:id="@+id/distance"
-        android:text=""
+        android:text="00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="@android:color/black"
         android:layout_below="@id/separator2"
         android:layout_alignParentRight="true"
@@ -295,10 +296,9 @@
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:src="@drawable/ic_action_refresh"
-     android:layout_gravity="center_horizontal"
-     android:layout_alignParentBottom="true"
-     android:layout_toLeftOf="@+id/fab"
-     android:layout_toStartOf="@+id/fab" />
+     android:background="@color/red"
+     android:layout_alignParentLeft="true"
+     android:layout_alignParentBottom="true" />
  <Button
      android:id="@+id/fab"
      android:onClick="onFabClick"
@@ -308,8 +308,9 @@
      android:src="@drawable/ic_action_play"
      android:layout_gravity="center_horizontal"
      android:layout_alignParentBottom="true"
-     android:layout_toRightOf="@+id/status"
-     android:layout_toEndOf="@+id/status" />
+     android:layout_alignParentRight="true"
+     android:background="@color/red"
+     />
 
 
 </RelativeLayout>

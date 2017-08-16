@@ -3,21 +3,21 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\Admin\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.0\c4ba5371a29ac9b2ad6129b1d39ea38750043eff\gson-2.8.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
-        <dex dex="E:\Prashant\Github_Demo\GaugeView\app\build\intermediates\pre-dexed\debug\gson-2.8.0_b71d5f7c2d5af6eab9e08ff09f05f15005821db5.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="E:\Prashant\Github_Demo\GaugeView\app\build\intermediates\exploded-aar\GaugeView\gaugelibrary\unspecified\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="03259a7a40394949dc53c7feb20524774501c07d">
         <dex dex="E:\Prashant\Github_Demo\GaugeView\app\build\intermediates\pre-dexed\debug\GaugeView-gaugelibrary-unspecified_46a634143a4787ea8004422e35f657819c79b04c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Admin\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.1\2a8e0aa38a2e21cb39e2f5a7d6704cbdc941da0\gson-2.8.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02a8e0aa38a2e21cb39e2f5a7d6704cbdc941da0">
+        <dex dex="E:\Prashant\Github_Demo\GaugeView\app\build\intermediates\pre-dexed\debug\gson-2.8.1_0a4b09ea28e9ec5974bf99618cba70f0d69866d1.jar" />
     </item>
     <item
         is-multidex="false"

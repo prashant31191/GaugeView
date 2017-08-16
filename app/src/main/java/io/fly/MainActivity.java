@@ -202,6 +202,8 @@ public class MainActivity extends Activity implements LocationListener, GpsStatu
         stopService(new Intent(getBaseContext(), GpsServices.class));
     }
 
+    boolean displayLocationPopup = true;
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -224,7 +226,11 @@ public class MainActivity extends Activity implements LocationListener, GpsStatu
         }
 
         if (!mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            showGpsDisabledDialog();
+            if(displayLocationPopup == true) {
+                showGpsDisabledDialog();
+                displayLocationPopup = false;
+            }
+
         }
 
         mLocationManager.addGpsStatusListener(this);
@@ -415,12 +421,12 @@ int i=0;
         return data;
     }
 
-    public void onBackPressed(){
+  /*  public void onBackPressed(){
         Intent a = new Intent(Intent.ACTION_MAIN);
         a.addCategory(Intent.CATEGORY_HOME);
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(a);
-    }
+    }*/
 
     @Override
     public void onStatusChanged(String s, int i, Bundle bundle) {}
